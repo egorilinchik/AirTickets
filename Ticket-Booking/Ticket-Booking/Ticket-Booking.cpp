@@ -4,13 +4,12 @@
 #include <memory>
 #include <algorithm>
 
-enum classTick {economy = 30, casual = 40, buissines = 60, god = 90};
+enum classTick {economy = 30, casual = 45, buissines = 60, god = 90};
 
 class Ticket
 {
 public:
     std::string companyName;    // название компания
-    std::string passegerName;   // пассажир
     std::string sellingDate;    // дата продажи билета
     std::string flightNumber;   // номер билета
     std::string placeOUT;       // место вылета
@@ -26,7 +25,6 @@ private:
     Ticket()
     {
         companyName = "-";
-        passegerName = "-";
         sellingDate = "-";
         flightNumber = "-";
         placeOUT = "-";
@@ -35,15 +33,14 @@ private:
         departure = "-";
         distance = "-";
         duration = "-";
-        classTick clas = economy;
+        clas = economy;
         flightReice = "-";
         ticketCost = 0;
     }
-    Ticket(std::string companyName, std::string passegerName, std::string sellingDate, std::string flightNumber, std::string placeOUT, std::string placeIN, std::string arrival, std::string departure,
+    Ticket(std::string companyName, std::string sellingDate, std::string flightNumber, std::string placeOUT, std::string placeIN, std::string arrival, std::string departure,
         std::string distance, std::string duration, classTick clas, std::string flightReice, double ticketCost)
     {
         this->companyName = companyName;
-        this->passegerName = passegerName;
         this->sellingDate = sellingDate;
         this->flightNumber = flightNumber;
         this->placeOUT = placeOUT;
@@ -56,11 +53,30 @@ private:
         this->flightReice = flightReice;
         this->ticketCost = ticketCost;
     }
-
-
 };         
+
+class Person
+{
+private:
+    int size;
+    Ticket* tickets;
+    std::string name;
+    std::string surname;
+public:
+    Person()
+    {
+        tickets = new Ticket[size];
+        name = "-";
+        surname = "-";
+    }
+    Person(std::string surname, std::string name)
+    {
+        this->name = name;
+        this->surname = surname; 
+    }
+};
 
 int main()
 {
-    std::vector<std::shared_ptr<Ticket>> person;
+    
 }
