@@ -4,6 +4,8 @@
 #include <memory>
 #include <algorithm>
 
+enum classTick {economy = 30, casual = 40, buissines = 60, god = 90};
+
 class Ticket
 {
 public:
@@ -17,7 +19,7 @@ public:
     std::string departure;      // время прибытия
     std::string distance;       // расстояние полёта
     std::string duration;       // продолжительность полёта
-    std::string classTick;      // тип класса
+    classTick clas;             // тип класса
     std::string flightReice;    // номер рейса
     double ticketCost;          // стоимость билета
 private:
@@ -33,12 +35,12 @@ private:
         departure = "-";
         distance = "-";
         duration = "-";
-        classTick = "-";
+        classTick clas = economy;
         flightReice = "-";
         ticketCost = 0;
     }
     Ticket(std::string companyName, std::string passegerName, std::string sellingDate, std::string flightNumber, std::string placeOUT, std::string placeIN, std::string arrival, std::string departure,
-        std::string distance, std::string duration, std::string classTick, std::string flightReice, double ticketCost)
+        std::string distance, std::string duration, classTick clas, std::string flightReice, double ticketCost)
     {
         this->companyName = companyName;
         this->passegerName = passegerName;
@@ -50,7 +52,7 @@ private:
         this->departure = departure;
         this->distance = distance;
         this->duration = duration;
-        this->classTick = classTick;
+        this->clas = clas;
         this->flightReice = flightReice;
         this->ticketCost = ticketCost;
     }
@@ -61,5 +63,4 @@ private:
 int main()
 {
     std::vector<std::shared_ptr<Ticket>> person;
-    
 }
